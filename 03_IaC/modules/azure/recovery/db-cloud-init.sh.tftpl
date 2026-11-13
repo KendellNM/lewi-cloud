@@ -1,0 +1,10 @@
+#!/bin/bash
+# PostgreSQL ${pg_major} privado para restaurar la copia portable (pg_restore) desde GCP.
+set -euo pipefail
+export DEBIAN_FRONTEND=noninteractive
+apt-get update -y
+apt-get install -y postgresql-${pg_major} postgresql-contrib || apt-get install -y postgresql postgresql-contrib
+CONF=$(ls /etc/postgresql/*/main/postgresql.conf | head -n1)
+sed -i "s/^#\?listen_addresses.*/listen_addresses = '*'/" "$CONF"
+systemctl enable --now postgresql
+systemctl restart postgresql

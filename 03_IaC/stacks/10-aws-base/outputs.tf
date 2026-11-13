@@ -1,0 +1,16 @@
+output "vpc_id" { value = module.network.vpc_id }
+output "vpc_cidr" { value = module.network.vpc_cidr }
+output "public_subnet_ids" { value = module.network.public_subnet_ids }
+output "app_subnet_ids" { value = module.network.app_subnet_ids }
+output "vgw_id" { value = module.network.vgw_id }
+output "nat_public_ips" { value = module.network.nat_public_ips }
+output "alb_sg_id" { value = module.security.alb_sg_id }
+output "app_sg_id" { value = module.security.app_sg_id }
+output "rds_sg_id" { value = module.security.rds_sg_id }
+output "kms_key_arn" { value = module.data.kms_key_arn }
+output "db_identifier" { value = module.data.db_identifier }
+output "db_endpoint" { value = module.data.db_endpoint }
+output "db_master_secret_arn" { value = module.data.db_master_secret_arn }
+output "allocated_storage_gb" { value = module.data.allocated_storage_gb }
+output "objects_bucket_arn" { value = module.data.objects_bucket_arn }
+output "exports_bucket" { value = module.data.exports_bucket }

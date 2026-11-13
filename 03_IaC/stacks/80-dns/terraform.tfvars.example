@@ -1,0 +1,3 @@
+state_bucket       = "e3-abelito-tfstate-<cuenta>"
+cloudflare_zone_id = "<zone id de abelito.me>"
+active_origin      = "aws"

@@ -1,0 +1,15 @@
+output "compartment_id" { value = local.compartment_id }
+output "tenancy_ocid" { value = var.tenancy_ocid }
+output "region" { value = var.region }
+output "drg_id" { value = module.network.drg_id }
+output "vcn_id" { value = module.network.vcn_id }
+output "public_subnet_id" { value = module.network.public_subnet_id }
+output "app_subnet_id" { value = module.network.app_subnet_id }
+output "nsg_lb_id" { value = module.network.nsg_lb_id }
+output "nsg_relay_lb_id" { value = module.network.nsg_relay_lb_id }
+output "nsg_app_id" { value = module.network.nsg_app_id }
+output "postgres_private_ip" { value = module.data.postgres_private_ip }
+output "bucket_name" { value = module.data.bucket_name }
+output "availability_domain" { value = module.data.availability_domain }
+output "bastion_id" { value = module.network.bastion_id }
+output "postgres_standby_private_ip" { value = module.data.postgres_standby_private_ip }

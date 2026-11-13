@@ -1,0 +1,4 @@
+owner        = "tu-nombre"
+expiry       = "2026-12-31"
+state_bucket = "e3-abelito-tfstate-<cuenta>"
+alarm_email  = "tu-correo@ejemplo.com"

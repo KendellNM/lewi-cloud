@@ -1,0 +1,19 @@
+#!/bin/bash
+# Origen de demostracion: HTTPS 8443 con certificado autofirmado (los balanceadores no validan el certificado del destino).
+# /healthz responde 200. Reemplazar por la aplicacion real del proyecto.
+set -euo pipefail
+dnf install -y nginx openssl
+mkdir -p /etc/nginx/tls
+openssl req -x509 -nodes -newkey rsa:2048 -days 30 -subj "/CN=${provider}-origen" \
+  -keyout /etc/nginx/tls/key.pem -out /etc/nginx/tls/cert.pem
+cat > /etc/nginx/conf.d/app.conf <<'EOF'
+server {
+  listen 8443 ssl;
+  ssl_certificate     /etc/nginx/tls/cert.pem;
+  ssl_certificate_key /etc/nginx/tls/key.pem;
+  location = /healthz { default_type text/plain; return 200 "ok"; }
+  location / { default_type text/plain; return 200 "Abelito Lewista S.A.C. - origen $hostname\n"; }
+}
+EOF
+(firewall-cmd --permanent --add-port=8443/tcp && firewall-cmd --reload) || true
+systemctl enable --now nginx

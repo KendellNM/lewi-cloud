@@ -1,0 +1,4 @@
+owner        = "tu-nombre"
+expiry       = "2026-12-31"
+tenancy_ocid = "ocid1.tenancy.oc1..xxxxxxxx"
+admin_cidrs  = ["203.0.113.10/32"] # tu IP publica

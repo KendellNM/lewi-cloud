@@ -1,0 +1,3 @@
+# Copiar a backend.hcl con la salida de 00-bootstrap (output backend_hcl).
+bucket = "e3-abelito-tfstate-<id-de-cuenta>"
+region = "us-east-1"
