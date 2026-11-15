@@ -195,3 +195,14 @@ resource "azurerm_linux_virtual_machine" "db" {
     version   = "latest"
   }
 }
+
+# Las VM leen la copia con su identidad administrada (sin claves ni secretos).
+resource "azurerm_role_assignment" "backup_reader" {
+  for_each = var.backup_container_id == "" ? {} : {
+    app = azurerm_linux_virtual_machine.app.identity[0].principal_id
+    db  = azurerm_linux_virtual_machine.db.identity[0].principal_id
+  }
+  scope                = var.backup_container_id
+  role_definition_name = "Storage Blob Data Reader"
+  principal_id         = each.value
+}

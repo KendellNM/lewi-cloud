@@ -26,7 +26,7 @@ Ejecutar y documentar las 17 pruebas (T01–T17) con evidencia verificable; es l
 - [ ] Registrar en cada `RESULTADO.md`: fecha, responsable, versión de configuración (commit), resultado, medición, evidencia y observaciones. **Nunca** copiar secretos.
 - [ ] T09: cargas de 25 y 50 sesiones por 10 min; p95 ≤ 2 s y errores < 1 %; registrar tamaño de datos y patrón.
 - [ ] T10, T11, T13, T14, T15: medir RTO/RPO con transacciones de control y relojes sincronizados.
-- [ ] T16: recrear desde Terraform en un entorno limpio; T17: destruir y revisar residuos con `teardown-check.sh` (NAT, EIP, VPN, ALB, RDS, snapshots, versiones S3, OCI/GCP/Azure).
+- [ ] T16: recrear desde Terraform en un entorno limpio; T17: destruir y revisar residuos con `teardown-check.sh` (NAT, EIP, VPN, ALB, RDS, snapshots, versiones S3, OCI y Azure: grupos `e3-abelito-recuperacion` y `e3-abelito-copias`).
 - [ ] Detener una prueba si peligra la integridad o no se puede confirmar un único escritor.
 - [ ] Entregar los resultados al agente 11 para el informe (§23 y anexos).
 

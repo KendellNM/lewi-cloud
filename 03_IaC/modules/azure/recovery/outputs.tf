@@ -9,3 +9,7 @@ output "db_private_ip" {
 output "resource_group" {
   value = azurerm_resource_group.this.name
 }
+
+output "backup_account_name" {
+  value = var.backup_account_name
+}

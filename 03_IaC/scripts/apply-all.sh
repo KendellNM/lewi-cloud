@@ -6,6 +6,6 @@ for s in 10-aws-base 20-oci-base; do
   (cd "$ROOT/stacks/$s" && terraform init -backend-config=../../backend.hcl -input=false && terraform apply -input=false -auto-approve $( [[ "$s" == 70-observability || "$s" == 80-dns ]] && echo "-var oci_enabled=true" ))
 done
 "$ROOT/scripts/apply-vpn.sh"
-for s in 40-aws-app 50-oci-app 60-backup-gcp 70-observability 80-dns; do
+for s in 40-aws-app 50-oci-app 60-backup-azure 70-observability 80-dns; do
   (cd "$ROOT/stacks/$s" && terraform init -backend-config=../../backend.hcl -input=false && terraform apply -input=false -auto-approve $( [[ "$s" == 70-observability || "$s" == 80-dns ]] && echo "-var oci_enabled=true" ))
 done

@@ -1,5 +1,5 @@
 #!/bin/bash
-# PostgreSQL ${pg_major} privado para restaurar la copia portable (pg_restore) desde GCP.
+# PostgreSQL ${pg_major} privado para restaurar la copia portable (pg_restore) desde Azure Blob Storage (az storage blob download --auth-mode login).
 set -euo pipefail
 export DEBIAN_FRONTEND=noninteractive
 apt-get update -y

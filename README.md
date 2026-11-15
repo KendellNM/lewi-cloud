@@ -1,6 +1,6 @@
 # Proyecto final Cloud Computing — Abelito Lewista S.A.C.
 
-Arquitectura multicloud: **AWS** (principal) · **OCI** (recuperación preparada) · **GCP** (copia externa) · **Azure** (recuperación en frío) · **Cloudflare** (DNS/proxy).
+Arquitectura multicloud: **AWS** (principal) · **OCI** (recuperación preparada) · **Azure** (copia independiente y recuperación en frío) · **Cloudflare** (DNS/proxy).
 
 - **Agentes de IA / reparto del trabajo:** empieza en [`AGENTS.md`](AGENTS.md) y [`agentes/`](agentes/).
 - **Infraestructura como código:** [`03_IaC/README.md`](03_IaC/README.md).

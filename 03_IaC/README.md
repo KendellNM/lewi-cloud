@@ -1,14 +1,14 @@
 # 03_IaC — Terraform de Abelito Lewista S.A.C.
 
-Terraform ≥ 1.10. Proveedores: aws ~>6, oci ~>9, google ~>8, azurerm ~>5, cloudflare ~>5 (ver `.terraform.lock.hcl` de cada stack).
+Terraform ≥ 1.10. Proveedores: aws ~>6, oci ~>9, azurerm ~>5, cloudflare ~>5 (ver `.terraform.lock.hcl` de cada stack).
 
 **Estado de validación:** `terraform fmt` + `terraform validate` pasan en los 10 directorios (`./scripts/validate-all.sh`, sin credenciales). **No se ha ejecutado `plan` ni `apply`**: requiere cuentas reales. Cualquier error de permisos, cuotas o de comportamiento del proveedor aparecerá ahí, no en `validate`.
 
 ## Estructura
 
 ```
-00-bootstrap/            estado remoto (S3 + copia GCS). Local. NO se destruye.
-modules/{aws,oci,gcp,azure}/...   lógica reutilizable
+00-bootstrap/            estado remoto (S3). Local. NO se destruye. Copia fuera de AWS: `scripts/backup-state.sh` (Azure Blob).
+modules/{aws,oci,azure}/...   lógica reutilizable
 modules/shared/          script de origen de demostración (nginx 8443)
 stacks/                  un estado por carpeta; el número es el orden
   10-aws-base            VPC, subredes, NAT, VGW, endpoints, SG, KMS, RDS Multi-AZ, S3, Backup
@@ -16,7 +16,7 @@ stacks/                  un estado por carpeta; el número es el orden
   30-interconnect        VPN AWS–OCI: 2 caminos IPsec + BGP (2 pasadas, ver abajo)
   40-aws-app             ACM (DNS Cloudflare), ALB, WAF, ASG 2–4
   50-oci-app             Origin CA, LB web, LB privado del relay, pool 2–3 en 2 fault domains, autoscaling
-  60-backup-gcp          bucket GCS us-central1 + cuentas de servicio mínimas
+  60-backup-azure        Azure Blob (Central US): copia portable independiente, solo Entra ID, versionada
   70-observability       dashboard, alarmas, SNS, CloudTrail (AWS) + alarmas OCI
   80-dns                 abelito.me → origen activo (aws|oci), SSL strict, cabecera de origen
   90-azure-recovery      VNet + 2 VM; enabled=false por defecto
@@ -63,5 +63,5 @@ AWS necesita la IP pública de OCI y OCI necesita la IP del túnel AWS: dependen
 
 - Aplicación real (hoy los nodos sirven un nginx de demostración con `/healthz`).
 - Roles y publicación lógica en RDS, y `scripts/oci-subscriber.sql` en OCI.
-- Job de copia portable (pg_dump → S3 → relay → GCS) y la métrica `Abelito/Backup`.
+- Job de copia portable (pg_dump → S3 → relay → Azure Blob) y la métrica `Abelito/Backup`.
 - Las listas de IP de Cloudflare deben verificarse contra <https://www.cloudflare.com/ips-v4> antes de aplicar.

@@ -107,7 +107,7 @@
         <mxCell id="n131" value="EC2 aplicación (sin IP pública)" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=top;fontSize=11;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="650.0" y="807" width="170" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="n132" value="Auto Scaling Group 2–4 · CPU 60 % · health check ELB" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontSize=12;fontColor=#C46A00;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="n132" value="ASG 4–8 (2 por AZ) · CPU 60 % · health check ELB" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontSize=12;fontColor=#C46A00;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="330" y="852" width="360" height="22" as="geometry" />
         </mxCell>
         <mxCell id="n133" value="AZ A · datos 10.10.21.0/24" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=0;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;verticalAlign=top;align=left;spacingLeft=30;grIcon=mxgraph.aws4.group_security_group;strokeColor=#147EBA;fillColor=#E6F2F8;fontColor=#147EBA;dashed=0;align=right;spacingRight=8;" vertex="1" parent="1">
@@ -261,7 +261,7 @@
         <mxCell id="n174" value="NSG del LB: 443 solo desde rangos de Cloudflare" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=10;fontColor=#7A3E1D;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="1620" y="485" width="480" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="n175" value="Subred privada app/relay 10.20.11.0/24 · Instance Pool 2–3 + Autoscaling (CPU 65 % / 30 %)" style="whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;align=left;fontFamily=Helvetica;verticalAlign=top;fillColor=none;fontColor=#AE562C;strokeColor=#AE562C;fontSize=12;spacingLeft=6;rounded=1;arcSize=4;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="n175" value="Subred privada app/relay 10.20.11.0/24 · Instance Pool 4–6 + Autoscaling (CPU 65 % / 30 %)" style="whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;align=left;fontFamily=Helvetica;verticalAlign=top;fillColor=none;fontColor=#AE562C;strokeColor=#AE562C;fontSize=12;spacingLeft=6;rounded=1;arcSize=4;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="1250" y="590" width="860" height="255" as="geometry" />
         </mxCell>
         <mxCell id="n176" value="Fault Domain 1" style="whiteSpace=wrap;html=1;strokeWidth=1;dashed=0;align=center;fontFamily=Helvetica;verticalAlign=top;fillColor=#FCFBFA;fontColor=#312D2A;strokeColor=#9E9892;fontSize=12;spacingLeft=6;rounded=1;arcSize=4;fontStyle=1;" vertex="1" parent="1">
@@ -836,73 +836,73 @@
         <mxCell id="n357" value="Copias portables (F03):&lt;br&gt;VPN → LB relay → Object Storage" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontSize=10;fontColor=#1E8449;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="1010" y="1075" width="185" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="n358" value="" style="rounded=1;arcSize=5;whiteSpace=wrap;html=1;fillColor=#EAF3FB;strokeColor=#0078D4;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="40" y="1335" width="960" height="300" as="geometry" />
+        <mxCell id="n358" value="" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;fillColor=#EAF3FB;strokeColor=#0078D4;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1335" width="2120" height="300" as="geometry" />
         </mxCell>
-        <mxCell id="n359" value="&lt;b style=&quot;font-size:20px;color:#0F5C9E&quot;&gt;MICROSOFT AZURE&lt;/b&gt;" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="60" y="1345" width="600" height="30" as="geometry" />
+        <mxCell id="n359" value="&lt;b style=&quot;font-size:20px;color:#0F5C9E&quot;&gt;MICROSOFT AZURE&lt;/b&gt;  ·  copia independiente + recuperación manual" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1345" width="900" height="30" as="geometry" />
         </mxCell>
         <mxCell id="n360" value="RECUPERACIÓN MANUAL" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#DCEBFA;strokeColor=#0078D4;fontColor=#0F5C9E;fontSize=11;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="790" y="1348" width="190" height="28" as="geometry" />
+          <mxGeometry x="1930" y="1348" width="210" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="n361" value="Región fuera de Norte de Virginia (por confirmar) · VNet 10.30.0.0/16 · apagado por defecto (enabled = false)" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontColor=#4A5568;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="60" y="1378" width="900" height="24" as="geometry" />
+        <mxCell id="n361" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9CC3E6;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="1385" width="2" height="240" as="geometry" />
         </mxCell>
-        <mxCell id="n362" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=11;image=img/lib/azure2/networking/Virtual_Networks.svg;" vertex="1" parent="1">
-          <mxGeometry x="120" y="1425" width="56" height="56" as="geometry" />
+        <mxCell id="n362" value="&lt;b&gt;Recuperación en frío&lt;/b&gt; · Central US · VNet 10.30.0.0/16 · apagada por defecto (enabled = false)" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontColor=#4A5568;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1378" width="1040" height="24" as="geometry" />
         </mxCell>
-        <mxCell id="n363" value="VNet + NSG (443 solo Cloudflare)" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=top;fontSize=11;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="68.0" y="1483" width="160" height="34" as="geometry" />
+        <mxCell id="n363" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=11;image=img/lib/azure2/networking/Virtual_Networks.svg;" vertex="1" parent="1">
+          <mxGeometry x="110" y="1425" width="56" height="56" as="geometry" />
         </mxCell>
-        <mxCell id="n364" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=11;image=img/lib/azure2/compute/Virtual_Machine.svg;" vertex="1" parent="1">
+        <mxCell id="n364" value="VNet + NSG (443 solo Cloudflare)" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=top;fontSize=11;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="58.0" y="1483" width="160" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="n365" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=11;image=img/lib/azure2/compute/Virtual_Machine.svg;" vertex="1" parent="1">
           <mxGeometry x="330" y="1425" width="56" height="56" as="geometry" />
         </mxCell>
-        <mxCell id="n365" value="VM aplicación 10.30.11.0/24" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=top;fontSize=11;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="n366" value="VM aplicación 10.30.11.0/24" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=top;fontSize=11;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="283.0" y="1483" width="150" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="n366" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=11;image=img/lib/azure2/compute/Virtual_Machine.svg;" vertex="1" parent="1">
-          <mxGeometry x="540" y="1425" width="56" height="56" as="geometry" />
+        <mxCell id="n367" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=11;image=img/lib/azure2/compute/Virtual_Machine.svg;" vertex="1" parent="1">
+          <mxGeometry x="560" y="1425" width="56" height="56" as="geometry" />
         </mxCell>
-        <mxCell id="n367" value="VM PostgreSQL privada 10.30.21.0/24" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=top;fontSize=11;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="483.0" y="1483" width="170" height="34" as="geometry" />
+        <mxCell id="n368" value="VM PostgreSQL privada 10.30.21.0/24" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=top;fontSize=11;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="503.0" y="1483" width="170" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="n368" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=11;image=img/lib/azure2/compute/Disks.svg;" vertex="1" parent="1">
-          <mxGeometry x="750" y="1425" width="56" height="56" as="geometry" />
+        <mxCell id="n369" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=11;image=img/lib/azure2/compute/Disks.svg;" vertex="1" parent="1">
+          <mxGeometry x="800" y="1425" width="56" height="56" as="geometry" />
         </mxCell>
-        <mxCell id="n369" value="Managed Disks cifrados" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=top;fontSize=11;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="713.0" y="1483" width="130" height="34" as="geometry" />
+        <mxCell id="n370" value="Managed Disks cifrados" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=top;fontSize=11;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="763.0" y="1483" width="130" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="n370" value="Restaurar la última copia válida de GCS → comprobar datos, secuencias y objetos → instalar certificado Origin CA → cambiar el origen en Cloudflare.&lt;br&gt;Se crea solo durante el ensayo T15." style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="60" y="1545" width="920" height="70" as="geometry" />
+        <mxCell id="n371" value="Restaurar la última copia válida desde Blob Storage (las VM leen con identidad administrada, sin claves) → comprobar datos, secuencias y objetos → instalar certificado Origin CA → cambiar el origen en Cloudflare. Se crea solo durante el ensayo T15." style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1545" width="1040" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="n371" value="" style="rounded=1;arcSize=5;whiteSpace=wrap;html=1;fillColor=#EAF6EC;strokeColor=#34A853;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="1200" y="1335" width="960" height="300" as="geometry" />
+        <mxCell id="n372" value="&lt;b&gt;Copia independiente del par AWS–OCI&lt;/b&gt; · stack 60 · Central US (Iowa)" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontColor=#4A5568;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="1378" width="1010" height="24" as="geometry" />
         </mxCell>
-        <mxCell id="n372" value="&lt;b style=&quot;font-size:20px;color:#1E7B34&quot;&gt;GOOGLE CLOUD · us-central1 (Iowa)&lt;/b&gt;" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="1220" y="1345" width="700" height="30" as="geometry" />
+        <mxCell id="n373" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=11;image=img/lib/azure2/storage/Storage_Accounts.svg;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="1420" width="60" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="n373" value="" style="html=1;fillColor=#4387FD;gradientColor=#4683EA;strokeColor=#ffffff;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.gcp2.hexIcon;prIcon=cloud_storage;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="1260" y="1415" width="74" height="64" as="geometry" />
+        <mxCell id="n374" value="Blob Storage · contenedor copias-portables" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=top;fontSize=11;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1185.0" y="1482" width="190" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="n374" value="Cloud Storage privado y versionado" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=top;fontSize=11;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="1210" y="1485" width="175" height="34" as="geometry" />
+        <mxCell id="n375" value="&lt;b&gt;Cuenta de almacenamiento privada&lt;/b&gt;&lt;br&gt;Solo Entra ID (sin claves compartidas) · cifrado doble&lt;br&gt;Versionado y borrado recuperable de 7 días · acceso público bloqueado&lt;br&gt;Escritura: service principal acotado al contenedor (relay OCI y job AWS)&lt;br&gt;Lectura: identidad administrada de las VM de recuperación&lt;br&gt;La clave de cifrado del paquete debe custodiarse fuera de AWS." style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1470" y="1405" width="660" height="190" as="geometry" />
         </mxCell>
-        <mxCell id="n375" value="&lt;b&gt;Copia independiente del par AWS–OCI&lt;/b&gt;&lt;br&gt;Acceso uniforme, acceso público bloqueado, versiones 7 días.&lt;br&gt;Cuenta de escritura (solo crear) y cuenta de lectura (solo ver) separadas.&lt;br&gt;La clave de recuperación debe estar fuera de AWS." style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontColor=#232F3E;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="1420" y="1405" width="700" height="140" as="geometry" />
-        </mxCell>
-        <mxCell id="n376" value="RESTAURAR · HTTPS · manual" style="edgeStyle=none;html=1;rounded=0;strokeWidth=2;strokeColor=#1F5FD6;endArrow=block;endFill=1;startArrow=none;startFill=1;fontSize=11;fontColor=#1F5FD6;labelBackgroundColor=#FFFFFF;dashed=1;" edge="1" parent="1">
+        <mxCell id="n376" value="RESTAURAR · manual" style="edgeStyle=none;html=1;rounded=0;strokeWidth=2;strokeColor=#1F5FD6;endArrow=block;endFill=1;startArrow=none;startFill=1;fontSize=11;fontColor=#1F5FD6;labelBackgroundColor=#FFFFFF;dashed=1;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1200" y="1480" as="sourcePoint" />
-            <mxPoint x="1000" y="1480" as="targetPoint" />
+            <mxPoint x="1120" y="1480" as="sourcePoint" />
+            <mxPoint x="880" y="1480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="n377" value="relay → GCS (F04)" style="edgeStyle=none;html=1;rounded=0;strokeWidth=2;strokeColor=#1E8449;endArrow=block;endFill=1;startArrow=none;startFill=1;fontSize=10;fontColor=#1E8449;labelBackgroundColor=#FFFFFF;" edge="1" parent="1">
+        <mxCell id="n377" value="relay → Blob (F04)" style="edgeStyle=none;html=1;rounded=0;strokeWidth=2;strokeColor=#1E8449;endArrow=block;endFill=1;startArrow=none;startFill=1;fontSize=10;fontColor=#1E8449;labelBackgroundColor=#FFFFFF;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="1280" y="1190" as="sourcePoint" />
             <mxPoint x="1280" y="1335" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="n378" value="ruta alterna AWS → GCS (F05)" style="edgeStyle=none;html=1;rounded=0;strokeWidth=2;strokeColor=#1E8449;endArrow=block;endFill=1;startArrow=none;startFill=1;fontSize=10;fontColor=#1E8449;labelBackgroundColor=#FFFFFF;dashed=1;" edge="1" parent="1">
+        <mxCell id="n378" value="ruta alterna AWS → Blob (F05)" style="edgeStyle=none;html=1;rounded=0;strokeWidth=2;strokeColor=#1E8449;endArrow=block;endFill=1;startArrow=none;startFill=1;fontSize=10;fontColor=#1E8449;labelBackgroundColor=#FFFFFF;dashed=1;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="891" y="1198" as="sourcePoint" />
             <mxPoint x="1420" y="1335" as="targetPoint" />
@@ -912,7 +912,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="n379" value="&lt;b&gt;La caída de la VPN no activa OCI.&lt;/b&gt; Primero aislar AWS, validar datos, esquema y secuencias, habilitar OCI y cambiar el origen en Cloudflare.&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#4A5568&quot;&gt;Demo temporal: la VPN, los NAT y los balanceadores generan cargo; evidencias, RTO/RPO y teardown pendientes. Iconos: AWS Architecture Icons, OCI Architecture Diagram Toolkit v24.2, Microsoft Azure y Google Cloud (bibliotecas de draw.io). Diseño teórico, no desplegado.&lt;/font&gt;" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#F4F6FA;strokeColor=#CBD5E0;align=left;spacingLeft=14;fontSize=13;fontColor=#14213D;" vertex="1" parent="1">
+        <mxCell id="n379" value="&lt;b&gt;La caída de la VPN no activa OCI.&lt;/b&gt; Primero aislar AWS, validar datos, esquema y secuencias, habilitar OCI y cambiar el origen en Cloudflare.&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#4A5568&quot;&gt;Demo temporal: la VPN, los NAT y los balanceadores generan cargo; evidencias, RTO/RPO y teardown pendientes. Iconos: AWS Architecture Icons, OCI Architecture Diagram Toolkit v24.2 y Microsoft Azure (bibliotecas de draw.io). Diseño teórico, no desplegado.&lt;/font&gt;" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#F4F6FA;strokeColor=#CBD5E0;align=left;spacingLeft=14;fontSize=13;fontColor=#14213D;" vertex="1" parent="1">
           <mxGeometry x="40" y="1655" width="2120" height="70" as="geometry" />
         </mxCell>
       </root>

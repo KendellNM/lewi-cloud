@@ -1,3 +1,5 @@
+> **Cambio posterior:** Google Cloud se eliminó del proyecto. Proveedores: **AWS + OCI + Azure** (+ Cloudflare). La copia independiente ahora está en Azure Blob Storage (`stacks/60-backup-azure`). Las menciones a GCP más abajo son históricas.
+
 # Estado tras las correcciones (actualizado)
 
 | Entregable | Ubicación | Estado |

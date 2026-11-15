@@ -25,7 +25,7 @@ OCI aplicación: Instance Pool en dos fault domains, autoescalado, Flexible LB p
 - [ ] Pool `pool_min=4`, `pool_max=6` (2 por fault domain). Comprobar que el autoescalado respeta fault domains y registra miembros en **ambos** backend sets.
 - [ ] **OCI no permite asociar el pool a un NLB**: el relay usa un LB privado L4 (decisión documentada en el informe §15). No migrar a NLB.
 - [ ] **WAF de OCI** (`waf.tf`): hoy solo tiene límite de tasa. Añadir reglas de protección (OWASP/`protection_capabilities`) y la verificación de la cabecera `x-origin-verify`, consultando la documentación de OCI WAF para claves y condiciones JMESPATH. Validar que el WAF no bloquea `/healthz` del LB.
-- [ ] Reemplazar el nginx de demostración por la aplicación real (coordinar con 09) y desplegar el **servicio relay** (con 08): recibe paquetes por 443 TCP, valida hash/manifiesto, guarda en Object Storage y copia a GCS.
+- [ ] Reemplazar el nginx de demostración por la aplicación real (coordinar con 09) y desplegar el **servicio relay** (con 08): recibe paquetes por 443 TCP, valida hash/manifiesto, guarda en Object Storage y copia a Azure Blob Storage.
 - [ ] Instance principal: confirmar permisos del dynamic group para el bucket de copias.
 - [ ] Probar que, al activarse OCI, la app escribe solo si la base está promovida (un único escritor).
 

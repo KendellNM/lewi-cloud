@@ -50,3 +50,14 @@ variable "tags" {
   type    = map(string)
   default = {}
 }
+
+variable "backup_container_id" {
+  type        = string
+  default     = ""
+  description = "ID del contenedor de copias (stack 60). Si se indica, las VM reciben el rol Storage Blob Data Reader."
+}
+
+variable "backup_account_name" {
+  type    = string
+  default = ""
+}

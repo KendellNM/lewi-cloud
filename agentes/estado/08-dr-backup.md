@@ -1,4 +1,4 @@
-# Estado — Agente 08 (Continuidad: copias, GCP y Azure)
+# Estado — Agente 08 (Continuidad: copias y Azure)
 
 | Campo | Valor |
 |---|---|

@@ -8,20 +8,11 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 6.0"
     }
-    google = {
-      source  = "hashicorp/google"
-      version = "~> 8.0"
-    }
   }
 }
 
 provider "aws" {
   region = var.aws_region
-}
-
-provider "google" {
-  project = var.gcp_project_id
-  region  = "us-central1"
 }
 
 data "aws_caller_identity" "current" {}
@@ -84,17 +75,4 @@ resource "aws_s3_bucket_policy" "state" {
   bucket     = aws_s3_bucket.state.id
   policy     = data.aws_iam_policy_document.tls_only.json
   depends_on = [aws_s3_bucket_public_access_block.state]
-}
-
-# Copia del estado fuera de AWS: si el Learner Lab borra el bucket, el estado no se pierde.
-# Se llena con scripts/backup-state.sh.
-resource "google_storage_bucket" "state_copy" {
-  count                       = var.gcp_project_id == "" ? 0 : 1
-  name                        = "${var.project}-tfstate-copy-${data.aws_caller_identity.current.account_id}"
-  location                    = "us-central1"
-  uniform_bucket_level_access = true
-  public_access_prevention    = "enforced"
-  versioning {
-    enabled = true
-  }
 }

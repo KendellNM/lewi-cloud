@@ -2,3 +2,4 @@ expiry               = "2026-12-31"
 subscription_id      = "00000000-0000-0000-0000-000000000000"
 admin_ssh_public_key = "ssh-ed25519 AAAA... usuario"
 enabled              = false
+state_bucket         = "e3-abelito-tfstate-<cuenta>"

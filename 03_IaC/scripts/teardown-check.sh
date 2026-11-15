@@ -9,4 +9,4 @@ echo "-- Balanceadores";  aws elbv2 describe-load-balancers --region $R --query 
 echo "-- RDS + snapshots";aws rds describe-db-instances --region $R --query 'DBInstances[].DBInstanceIdentifier' --output text; aws rds describe-db-snapshots --region $R --snapshot-type manual --query 'DBSnapshots[].DBSnapshotIdentifier' --output text
 echo "-- Volumenes EBS";  aws ec2 describe-volumes --region $R --query 'Volumes[].VolumeId' --output text
 echo "-- Buckets e3-abelito"; aws s3 ls | grep e3-abelito || true
-echo "OCI/GCP/Azure: revisar consola (compartment e3-abelito, bucket GCS, grupo de recursos e3-abelito-recuperacion)."
+echo "OCI/Azure: revisar consola (compartment e3-abelito; grupos de recursos e3-abelito-recuperacion y e3-abelito-copias)."

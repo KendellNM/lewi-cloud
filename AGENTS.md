@@ -1,6 +1,6 @@
 # AGENTS.md — Reglas comunes para todos los agentes de IA
 
-Proyecto: **Abelito Lewista S.A.C.** — arquitectura multicloud (AWS principal, OCI recuperación, GCP copia, Azure recuperación en frío).
+Proyecto: **Abelito Lewista S.A.C.** — arquitectura multicloud (AWS principal, OCI recuperación preparada, Azure copia independiente y recuperación en frío).
 Curso Cloud Computing, UPeU. Lee este archivo **completo** y luego **tu archivo** en `agentes/NN-nombre.md`.
 
 ## 1. Cómo trabajar
@@ -34,7 +34,7 @@ Curso Cloud Computing, UPeU. Lee este archivo **completo** y luego **tu archivo*
 | 05 oci-app | `03_IaC/modules/oci/app`, `03_IaC/stacks/50-oci-app` |
 | 06 interconexion-vpn | `03_IaC/stacks/30-interconnect`, `03_IaC/scripts/apply-vpn.sh` |
 | 07 observabilidad | `03_IaC/modules/aws/observability`, `modules/oci/observability`, `stacks/70-observability` |
-| 08 dr-backup | `03_IaC/modules/gcp`, `modules/azure`, `stacks/60-backup-gcp`, `stacks/90-azure-recovery`, `backup/` |
+| 08 dr-backup | `03_IaC/modules/azure` (`backup-storage`, `recovery`), `stacks/60-backup-azure`, `stacks/90-azure-recovery`, `backup/` |
 | 09 aplicacion | `app/`, `03_IaC/modules/shared` (solo el script de arranque del origen) |
 | 10 pruebas-evidencias | `pruebas/`, `evidencias/`, `03_IaC/scripts/teardown-check.sh` |
 | 11 docs-costos | `Proyecto_Final_*.docx`, `02_Arquitectura/`, `docs/`, `costos/` |
@@ -44,7 +44,7 @@ Curso Cloud Computing, UPeU. Lee este archivo **completo** y luego **tu archivo*
 ## 4. Flujo de despliegue (orden de dependencias)
 ```
 00-bootstrap → 10-aws-base ─┐
-               20-oci-base ─┴→ 30-interconnect → 40-aws-app → 50-oci-app → 60-backup-gcp → 70-observability → 80-dns → (90-azure-recovery, solo ensayo T15)
+               20-oci-base ─┴→ 30-interconnect → 40-aws-app → 50-oci-app → 60-backup-azure → 70-observability → 80-dns → (90-azure-recovery, solo ensayo T15)
 ```
 Destruir en orden inverso (`03_IaC/scripts/destroy-all.sh`). `00-bootstrap` y el dominio/zona de Cloudflare **no** se destruyen.
 
@@ -56,7 +56,7 @@ Destruir en orden inverso (`03_IaC/scripts/destroy-all.sh`). `00-bootstrap` y el
 | `30-interconnect` | `aws_tunnel_ips`, `paired_tunnel_ips`, `oci_tunnel_ips` |
 | `40-aws-app` | `alb_dns_name`, `alb_arn_suffix`, `target_group_arn_suffix`, `asg_name` |
 | `50-oci-app` | `web_lb_ip`, `relay_lb_ip`, `pool_id` |
-| `60-backup-gcp` | `bucket_name`, `writer_sa_email`, `reader_sa_email` |
+| `60-backup-azure` | `storage_account_name`, `storage_account_id`, `container_name`, `container_id`, `resource_group`, `location` |
 | `70-observability` | `aws_dashboard`, `aws_sns_topic_arn` |
 | `80-dns` | `active_origin` |
 | `90-azure-recovery` | `app_public_ip`, `db_private_ip` |
@@ -66,8 +66,7 @@ Destruir en orden inverso (`03_IaC/scripts/destroy-all.sh`). `00-bootstrap` y el
 |---|---|
 | credenciales AWS (`AWS_PROFILE` o `AWS_ACCESS_KEY_ID/SECRET/SESSION_TOKEN` del Learner Lab) | stacks 00, 10, 30, 40, 70 |
 | `~/.oci/config` (perfil DEFAULT) o `OCI_*` / `TF_VAR_tenancy_ocid` | stacks 20, 30, 50, 70 |
-| `GOOGLE_APPLICATION_CREDENTIALS` y `TF_VAR_gcp_project_id` | stacks 00 (opcional), 60 |
-| `ARM_SUBSCRIPTION_ID` / `az login` | stack 90 |
+| `az login` y `TF_VAR_subscription_id` (o `ARM_SUBSCRIPTION_ID`) | stacks 60 y 90 |
 | `CLOUDFLARE_API_TOKEN` (Zone DNS, Zone Settings, Transform Rules) | stacks 40, 80 |
 | `CLOUDFLARE_API_USER_SERVICE_KEY` (Origin CA Key) | stack 50 |
 

@@ -14,7 +14,7 @@ Cada integrante toma **un** archivo, se lo entrega a su agente de IA (Claude, Ch
 | 05 | [`05-oci-app.md`](05-oci-app.md) | OCI — Aplicación, balanceadores y WAF |
 | 06 | [`06-interconexion-vpn.md`](06-interconexion-vpn.md) | Interconexión VPN AWS–OCI |
 | 07 | [`07-observabilidad.md`](07-observabilidad.md) | Observabilidad y alarmas |
-| 08 | [`08-dr-backup.md`](08-dr-backup.md) | Continuidad: copias, GCP y Azure |
+| 08 | [`08-dr-backup.md`](08-dr-backup.md) | Continuidad: copias y Azure |
 | 09 | [`09-aplicacion.md`](09-aplicacion.md) | Aplicación web de demostración |
 | 10 | [`10-pruebas-evidencias.md`](10-pruebas-evidencias.md) | Pruebas T01–T17 y evidencias |
 | 11 | [`11-docs-costos.md`](11-docs-costos.md) | Informe, diagrama y costos |

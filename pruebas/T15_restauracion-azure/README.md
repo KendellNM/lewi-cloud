@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 |---|---|
-| Procedimiento | Descargar la copia de GCS, verificar hash y clave, restaurar datos y objetos, y probar la aplicación. |
+| Procedimiento | Descargar la copia de Azure Blob Storage (identidad administrada de la VM), verificar hash y clave, restaurar datos y objetos, y probar la aplicación. |
 | Aceptación | Servicio funcional desde una copia independiente; medir RTO/RPO y pérdida. |
 | Stacks implicados | 60, 90, 08 |
 | Criterios de la rúbrica | 9, 10, 12 |

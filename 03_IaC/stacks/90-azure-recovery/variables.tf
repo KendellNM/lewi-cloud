@@ -19,8 +19,8 @@ variable "subscription_id" {
 
 variable "location" {
   type        = string
-  default     = "eastus2"
-  description = "Region fuera de Norte de Virginia (eastus); verificar disponibilidad en la suscripcion estudiantil."
+  default     = "centralus"
+  description = "Region fuera de Norte de Virginia (eastus y eastus2 estan en Virginia); verificar disponibilidad en la suscripcion estudiantil."
 }
 
 variable "admin_ssh_public_key" {
@@ -35,4 +35,14 @@ variable "cloudflare_cidrs" {
     "197.234.240.0/22", "198.41.128.0/17", "162.158.0.0/15", "104.16.0.0/13",
     "104.24.0.0/14", "172.64.0.0/13", "131.0.72.0/22",
   ]
+}
+
+variable "state_bucket" {
+  type        = string
+  description = "Bucket del estado remoto (salida de 00-bootstrap)."
+}
+
+variable "state_region" {
+  type    = string
+  default = "us-east-1"
 }
